@@ -1,7 +1,14 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var lowerCase = ["a", "b", "c","d","e","f","g","h",
+//lowercase letter array
+var lowerCase = ["a", "b", "c","d","e","f","g","h","i","j","k","l", "m",
+"n","o","p","q","r","s","t","u","v", "w","x","y","z"];
+
+//make random letters uppercase
+var randomizeLetters = Math.floor(Math.random() * lowerCase.length);
+var upperCase = lowerCase[randomizeLetters].toUpperCase;
+
 //set up function that generates password
 var generatePassword = function(){
 
@@ -11,6 +18,15 @@ var generatePassword = function(){
   //if the user cancels, end function
   if(!passwordLength){
     return;
+  }
+  //validate password length is between 8 and 128
+  if(passwordLength<8 || passwordLength>128){
+    window.alert("password must be between 8 and 128 characters in length ")
+  }
+  //prompt user asking if they want to use lowercase letters
+  var wantLowerCase = window.confirm("Do you want to use lowercase letters?")
+  if(wantLowerCase){
+
   }
 
 
