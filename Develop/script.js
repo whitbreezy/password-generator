@@ -6,7 +6,8 @@ var lowerCase = ["a", "b", "c","d","e","f","g","h","i","j","k","l", "m",
 "n","o","p","q","r","s","t","u","v", "w","x","y","z"];
 
 //uppercase letter array
-var upperCase = lowerCase.toUpperCase();
+var upperCase = ["A", "B", "C", "D","E","F","G","H","I","J","K","L",
+"M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
 //symbols array
 var symbols = [
@@ -17,76 +18,66 @@ var symbols = [
 var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
 //create empty array to put pw characters in
-var passwordArray = [""]
+var passwordArray = [""];
 
+//prompts user to enter desired number of characters
+var passwordLength = window.prompt("How many characters?");
+
+//validate password length is between 8 and 128
+  if(passwordLength<8 || passwordLength>128){
+    window.alert("password must be between 8 and 128 characters in length ")
+    window.prompt("How many characters?");
+  };
+
+//ask if user wants lowercase
+var wantLowerCase = window.confirm("Do you want to use lowercase letters?");
+
+//ask user if they want uppercase letters
+var wantUpperCase = window.confirm("do you want to use uppercase letters?")
+
+//ask user if they want symbols
+var wantSymbols = window.confirm("do you want to use special characters?")
+
+//ask user if they want numbers
+var wantNumbers = window.confirm("do you want to use Numbers?")
 
 //set up function that generates password
 var generatePassword = function(){
+  while(passwordArray.length<passwordLength){
 
-  //prompts user to enter desired number of characters
-  var passwordLength = window.prompt("How many characters?")
-  
-  //if the user cancels, end function
-  if(!passwordLength){
-    return;
-  }
-  //validate password length is between 8 and 128
-  if(passwordLength<8 || passwordLength>128){
-    window.alert("password must be between 8 and 128 characters in length ")
-  }
-
-  //if user enters a number between 8 and 128, set password array length to number entered
-  // if(passwordLength>8 && passwordLength<128){
-  //   passwordArray.length = passwordLength
-  // } NOT SURE IF NEEDED SINCE USING WHILE LOOP^^^
-
-  //ask user if they want to use lowercase letters
-  var wantLowerCase = window.confirm("Do you want to use lowercase letters?")
+  //if user wants lowercase letters, add lowercase letters to array
   if(wantLowerCase){
     var lowerCaseIndex = Math.floor(Math.random() * lowerCase.length);
     var randomLowerCase = lowerCase[lowerCaseIndex];
     passwordArray.unshift(randomLowerCase)
   }
 
-  //ask user if they want uppercase letters
-  var wantUpperCase = window.confirm("do you want to use uppercase letters?")
+  //if user wants uppercase letters, add uppercase letters to passwordArray
   if(wantUpperCase){
     var upperCaseIndex = Math.floor(Math.random() * upperCase.length);
     var randomUpperCase = upperCase[upperCaseIndex];
     passwordArray.push(randomUpperCase)
   };
   
-  //ask user if they want symbols
-  var wantSymbols = window.confirm("do you want to use special characters?")
+  //if user wants symbols, add symbols to array
   if(wantSymbols){
     var symbolsIndex = Math.floor(Math.random() * symbols.length);
     var randomSymbol = symbols[symbolsIndex];
     passwordArray.push(randomSymbol)
   };
   
-  //ask user if they want numbers
-  var wantNumbers = window.confirm("do you want to use Numbers?")
+  //if user wants numbers
   if(wantNumbers){
     var numbersIndex = Math.floor(Math.random() * numbers.length);
     var randomNumber = numbers[numbersIndex];
     passwordArray.push(randomNumber)
   };
 
-  //add characters selected to end of password array
-  while(passwordArray.length<passwordLength){
-    passwordArray.push(randomLowerCase);
-    passwordArray.push(randomUpperCase);
-    passwordArray.push(randomSymbol);
-    passwordArray.push(randomNumber)
-  }
+  //turns password array into a string
+  passwordArray.toString;
+  return;
 }
-
-
-// while (passwordArray.length<password){
-//   generatePassword;
-// }
-//how to get it to loop without prompting again
-
+};
 
 
 
