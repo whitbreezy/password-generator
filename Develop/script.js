@@ -1,23 +1,23 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-//lowercase letter array
+//creates lowercase letter array
 var lowerCase = ["a", "b", "c","d","e","f","g","h","i","j","k","l", "m",
 "n","o","p","q","r","s","t","u","v", "w","x","y","z"];
 
-//uppercase letter array
+//creates uppercase letter array
 var upperCase = ["A", "B", "C", "D","E","F","G","H","I","J","K","L",
 "M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
-//symbols array
+//creates symbols array
 var symbols = [
 "!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",
-">","?","@","[", '\,', "]","^","_","`","{","|","}","~"];
+">","?","@","[","]","^","_","`","{","|","}","~"];
 
-//number array
+//creates number array
 var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
-//create empty array to put pw characters in
+//create empty string to put pw characters in
 var pw = "";
 
 //prompts user to enter desired number of characters
@@ -26,9 +26,9 @@ var passwordLength = window.prompt("How many characters?");
 //validate password length is between 8 and 128
   if(passwordLength<8 || passwordLength>128){
     window.alert("password must be between 8 and 128 characters in length ")
-    window.prompt("How many characters?");
-    //how do I get it to replace the initial pw length?
+    passwordLength = window.prompt("How many characters?");
   };
+  
 
 //ask if user wants lowercase
 var wantLowerCase = window.confirm("Do you want to use lowercase letters?");
@@ -42,10 +42,18 @@ var wantSymbols = window.confirm("do you want to use special characters?")
 //ask user if they want numbers
 var wantNumbers = window.confirm("do you want to use Numbers?")
 
+//if they hit cancel on all character types, ask questions again
+
+if(!wantLowerCase && !wantUpperCase && !wantSymbols && !wantNumbers){
+  window.confirm("You must select at least one character type");
+  passwordLength = window.prompt("How many characters?");
+  wantLowerCase = window.confirm("Do you want to use lowercase letters?");
+  wantSymbols = window.confirm("do you want to use special characters?");
+  wantNumbers = window.confirm("do you want to use Numbers?");
+};
+
 //set up function that generates password
 var generatePassword = function(){
-  // var length = pw.length;
-  
   while(pw.length < passwordLength){
 
     //if user wants lowercase letters, add lowercase letters to array
@@ -76,13 +84,8 @@ var generatePassword = function(){
       pw += randomNumber
     };
 
-  //if user declines all character types, tell them they must use at least one type
-  if(!wantLowerCase && !wantUpperCase && !wantSymbols && !wantNumbers){
-    window.confirm("You must select at least one character type");
-    return;
-  };
-
-  pw.length++
+    //adds to pw variable
+    pw.length++;
   };
   
   return pw;
