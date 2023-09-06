@@ -18,7 +18,7 @@ var symbols = [
 var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
 //create empty array to put pw characters in
-var passwordArray = [];
+var pw = "";
 
 //prompts user to enter desired number of characters
 var passwordLength = window.prompt("How many characters?");
@@ -44,36 +44,36 @@ var wantNumbers = window.confirm("do you want to use Numbers?")
 
 //set up function that generates password
 var generatePassword = function(){
-  var i = passwordArray.length;
+  // var length = pw.length;
   
-  while(i < passwordLength){
+  while(pw.length < passwordLength){
 
     //if user wants lowercase letters, add lowercase letters to array
     if(wantLowerCase){
       var lowerCaseIndex = Math.floor(Math.random() * lowerCase.length);
       var randomLowerCase = lowerCase[lowerCaseIndex];
-      passwordArray.unshift(randomLowerCase)
+      pw += randomLowerCase
     };
 
     //if user wants uppercase letters, add uppercase letters to passwordArray
     if(wantUpperCase){
       var upperCaseIndex = Math.floor(Math.random() * upperCase.length);
       var randomUpperCase = upperCase[upperCaseIndex];
-      passwordArray.push(randomUpperCase)
+      pw += randomUpperCase
     };
   
     //if user wants symbols, add symbols to array
     if(wantSymbols){
       var symbolsIndex = Math.floor(Math.random() * symbols.length);
       var randomSymbol = symbols[symbolsIndex];
-      passwordArray.push(randomSymbol)
+      pw += randomSymbol
     };
   
   //if user wants numbers
     if(wantNumbers){
       var numbersIndex = Math.floor(Math.random() * numbers.length);
       var randomNumber = numbers[numbersIndex];
-      passwordArray.push(randomNumber)
+      pw += randomNumber
     };
 
   //if user declines all character types, tell them they must use at least one type
@@ -82,17 +82,11 @@ var generatePassword = function(){
     return;
   };
 
-  //testing
-  console.log(passwordArray);
-
-  //turns password array into a string
-  passwordArray.toString();
-
-  //test to see if string worked
-  console.log(passwordArray.toString());
-  i++;
-  return passwordArray;
+  pw.length++
   };
+  
+  return pw;
+
 };
 
 
