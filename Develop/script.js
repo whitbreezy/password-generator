@@ -22,9 +22,9 @@ var pw = "";
 //prompt user to enter desired number of characters
 var passwordLength = window.prompt("How many characters?");
 
-//validate that user entered a number - need to fix bug here
-if(typeof passwordLength != "number"){
-  window.alert("Password length must be a number between 8 and 128.")
+//validate that user entered a number
+if(isNaN(passwordLength)){
+  window.alert("Response must be a number")
   passwordLength = window.prompt("How many characters?");
 };
 
