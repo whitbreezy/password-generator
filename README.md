@@ -10,6 +10,10 @@ Click the link below to go to my github repo, then clone it to your machine.
 
 https://github.com/whitbreezy/password-generator
 
+Click the link below to go to the live application
+
+https://whitbreezy.github.io/password-generator/
+
 ## Usage
 
 Below is an example of a random password generated. It is 12 characters long, and includes lowercase letters, uppercase letters, numbers, and symbols.
