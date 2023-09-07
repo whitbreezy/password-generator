@@ -24,13 +24,13 @@ var passwordLength = window.prompt("How many characters?");
 
 //validate that user entered a number
 if(isNaN(passwordLength)){
-  window.alert("Response must be a number")
+  window.alert("Response must be a number.")
   passwordLength = window.prompt("How many characters?");
 };
 
 //validate password length is between 8 and 128
 if(passwordLength<8 || passwordLength>128){
-  window.alert("Password must be between 8 and 128 characters in length")
+  window.alert("Password must be between 8 and 128 characters long.")
   passwordLength = window.prompt("How many characters?");
 };
 

@@ -12,11 +12,9 @@ https://github.com/whitbreezy/password-generator
 
 ## Usage
 
-Below is an example of a random password generated. It is 24 characters long, and includes lowercase letters, uppercase letters, numbers, and symbols.
+Below is an example of a random password generated. It is 12 characters long, and includes lowercase letters, uppercase letters, numbers, and symbols.
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+![App screenshot](./Assets/app_screenshot.png)
 
 
 ## License
