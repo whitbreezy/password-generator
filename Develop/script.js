@@ -19,7 +19,11 @@ var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 //create empty string to put pw characters in
 var pw = "";
 
-//prompt user to enter desired number of characters
+
+//set up function that generates password, runs when button is clicked
+var generatePassword = function(){
+
+  //prompt user to enter desired number of characters
 var passwordLength = window.prompt("How many characters?");
 
 //validate that user entered a number
@@ -55,8 +59,6 @@ if(!wantLowerCase && !wantUpperCase && !wantSymbols && !wantNumbers){
   wantNumbers = window.confirm("Do you want to use numbers?");
 };
 
-//set up function that generates password, runs when button is clicked
-var generatePassword = function(){
 
   //loop until pw string length = passwordLength entered in prompt
   while(pw.length < passwordLength){
