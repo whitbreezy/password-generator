@@ -26,16 +26,16 @@ var generatePassword = function(){
   //prompt user to enter desired number of characters
 var passwordLength = window.prompt("How many characters?");
 
-//validate that user entered a number
+//validate that user entered a number, it not, terminate function
 if(isNaN(passwordLength)){
-  window.alert("Response must be a number.")
-  passwordLength = window.prompt("How many characters?");
+  window.alert("Response must be a number. Please refresh and try again.");
+  return;
 };
 
-//validate password length is between 8 and 128
+//validate password length is between 8 and 128, if not, terminate function
 if(passwordLength<8 || passwordLength>128){
-  window.alert("Password must be between 8 and 128 characters long.")
-  passwordLength = window.prompt("How many characters?");
+  window.alert("Password must be between 8 and 128 characters long. Please refresh and try again.");
+  return;
 };
 
 //ask if user wants lowercase letters
